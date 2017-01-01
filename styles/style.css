@@ -1,0 +1,135 @@
+body {
+	background-color: #e7eaf1;
+}
+
+h3 {
+	margin-top: -15px;
+	margin-left:35px;
+}
+
+a {
+	color:orange;
+	text-decoration: none;
+}
+
+a:hover {
+	color:black;
+}
+
+#container {
+  border: 5px solid orange;
+  width: 800px;
+  height: 800px;
+  background-color:white;
+  float:left;
+}
+
+#top-holder {
+	text-align:center;
+	margin-left: 60px;
+}
+
+#colorswab {
+	width: 160px;
+	background-color: #e7eaf1;
+	border: 5px solid orange;
+	float:left;
+	margin-right: 5px;
+}
+
+.grid-square {
+	float:left;
+	opacity: 1;
+}
+
+#main {
+	width: 1000px;
+	margin: 0px auto;
+}
+
+button {
+	float:inline-block;
+	margin-bottom: 5px;
+}
+
+#clear-grid {
+	margin-left:35px;
+}
+
+#color-head {
+	margin-top:-15px;
+	margin-bottom: 15px;
+	text-align:center;
+	width:100%;
+	height: 35px;
+	background-color:orange;
+}
+#color-head h1 {
+	font-size: 20px;
+	color: white;
+	padding-top:5px;
+}
+
+.color-circle {
+	height: 30px;
+	width: 30px;
+	display: inline-block;
+	/*background-color: black;*/
+	border-radius: 20px;
+	margin-right: 5px;
+	border: 4px solid transparent;
+}
+
+#greencircle {
+	background-color:green;
+}
+
+#bluecircle {
+	background-color:blue;
+}
+
+#redcircle {
+	background-color:red;
+}
+
+#yellowcircle {
+	background-color:yellow;
+}
+
+#purplecircle {
+	background-color:purple;
+}
+
+#pinkcircle {
+	background-color:pink;
+}
+
+#orangecircle {
+	background-color:orange;
+}
+
+#browncircle {
+	background-color:brown;
+}
+
+#graycircle {
+	background-color:gray;
+}
+
+#whitecircle {
+	background-color: white;
+}
+
+#randomcircle {
+	background-image: url("test.jpg");
+	background-size: 400px 400px;
+}
+
+#fadecircle {
+	background-image: url("fade.jpg");
+	background-size: 20px 20px;
+}
+
+#contain-colors {
+	margin-left: 14px;
+}
