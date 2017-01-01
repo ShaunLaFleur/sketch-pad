@@ -63,7 +63,7 @@ function hoverEffect() {
 		} else {
 			$(this).css("opacity","1");
 		}
-			$(this).css("background-color", ourColor);
+		$(this).css("background-color", ourColor);
 	});
 }
 
