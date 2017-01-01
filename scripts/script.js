@@ -56,10 +56,10 @@ function hoverEffect() {
 			if($(this).css("opacity") === "1") {
 				$(this).css("opacity", "0");
 			}
-		if($(this).css("opacity") < 0.9) {
-			$(this).css("opacity", "+=0.1");
-			ourColor = "black";
-		}
+			if($(this).css("opacity") < 0.9) {
+				$(this).css("opacity", "+=0.1");
+				ourColor = "black";
+			}
 		} else {
 			$(this).css("opacity","1");
 		}
