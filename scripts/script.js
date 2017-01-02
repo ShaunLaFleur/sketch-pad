@@ -5,9 +5,9 @@ var colorSetting = "";
 
 // Loadup the grid with default values when window loads.
 $(document).ready(function(){
-	$("#bluecircle").css("border-color", "#d3d3e2");
-	gridStart(); // Populate grid with default settings
-	hoverEffect(); // Call the hover function to get it active
+	$("#bluecircle").css("border-color", "black");
+	gridStart(); // Populate grid with default settings.
+	hoverEffect(); // Call the hover function to get it attached.
 });
 
 // Reset Button
@@ -33,7 +33,7 @@ $(".color-circle").click(function(){
 	// Unhighlight any highlighted circles.
 	$(".color-circle").css("border-color", "transparent");
 	// Highlight this circle.
-	$(this).css("border-color", "#d3d3e2");
+	$(this).css("border-color", "black");
 	// If this color is "fade", set ourColor to fade.
 	if($(this).data("color") === "fade") {
 		colorSetting = "fade";
@@ -53,6 +53,8 @@ function hoverEffect() {
 		// Check if the ourColor is set to random, if it is we will change ourColor to a random color.
 		if(colorSetting === "random") {
 			ourColor = '#'+Math.random().toString(16).substr(2,6);
+			// Set opacity back to default
+			$(this).css("opacity","1");
 		// else if ourColor is set to fade, we will begin changing opacity instead.
 		} else if(colorSetting === "fade") {
 			// Background has to be set to black so that we get a fade from white to black when increasing opacity.
