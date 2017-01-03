@@ -11,31 +11,35 @@
       <h3>Designed By <a href="https://github.com/ShaunLaFleur">Shaun LaFleur</a></h3>
       <button id="clear-grid">Clear Sketch-Pad</button>
       <button id="resize">Resize Sketch-Pad</button>
-      <button id="borderbutton">Grid: On</button>
+      <button id="borderbutton">Grid: Off</button>
     </div>
 
    	<div id="colorswab">
-   			<div id="color-head">
-   				<h1>Choose Color</h1>
-   			</div>
-   			<div id="contain-colors">
-   				<div id="bluecircle" class="color-circle" data-color="blue"></div>
-   				<div id="greencircle" class="color-circle" data-color="green"></div>
-   				<div id="redcircle" class="color-circle" data-color="red"></div>
-   				<br>
-   				<div id="yellowcircle" class="color-circle" data-color="yellow"></div>
-   				<div id="purplecircle" class="color-circle" data-color="purple"></div>
-   				<div id="pinkcircle" class="color-circle" data-color="pink"></div>
-   				<br>
-   				<div id="orangecircle" class="color-circle" data-color="orange"></div>
-   				<div id="browncircle" class="color-circle" data-color="brown"></div>
-   				<div id="graycircle" class="color-circle" data-color="gray"></div>
-   				<br>
-   				<div id="whitecircle" class="color-circle" data-color="white"></div>
-   				<div id="fadecircle" class="color-circle" data-color="fade"></div>
-   				<div id="randomcircle" class="color-circle" data-color="random"></div>
-   			</div>
-   		</div>
+   			<button id="regencolors">Regenerate Colors</button>
+   			<div id="contain-colors"></div>
+        <div id="preview-container">
+          <div class="sel-high">
+            <span>Hovering</span>
+            <div class="previewbox" id="highlighted"></div>
+          </div>
+          <div class="sel-high">
+            <span>Selected</span>
+            <div class="previewbox" id="selected"></div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="frholder">
+          <h2>Additional Features</h2>
+          <div class="frcontain">
+            <span>Fade</span>
+            <div id="fadecircle" class="fade-rain" data-color="fade"></div>
+          </div>
+          <div class="frcontain">
+            <span>Rainbow</span>
+            <div id="randomcircle" class="fade-rain" data-color="random"></div>
+          </div>
+        </div>
+    </div>
    		<div id="container"></div>
    		<script src="scripts/script.js"></script>
    	</div>
