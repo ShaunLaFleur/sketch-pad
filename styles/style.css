@@ -40,6 +40,8 @@ a:hover {
 .grid-square {
 	float:left;
 	opacity: 1;
+	border: 1px solid #885a07;
+	background-color: white;
 }
 
 #main {

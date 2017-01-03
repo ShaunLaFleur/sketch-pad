@@ -1,13 +1,15 @@
-var gridSize = 100;
+var gridSize = 20;
 var squareSize = 800/gridSize;
 var ourColor = "blue";
 var colorSetting = "";
+var isBorder = true;
 
 // Loadup the grid with default values when window loads.
 $(document).ready(function(){
 	$("#bluecircle").css("border-color", "black");
 	gridStart(); // Populate grid with default settings.
 	hoverEffect(); // Call the hover function to get it attached.
+	setBorder(); // Call the setBorder function to get it attached.
 });
 
 // Reset Button
@@ -72,16 +74,45 @@ function hoverEffect() {
 			$(this).css("opacity","1");
 		}
 		$(this).css("background-color", ourColor);
+		if(!isBorder) {
+			$(this).css("border", "1px solid "+ourColor);
+		}
 	});
 }
 
-function gridStart() {
-// Create rows
-for(i=0; i<gridSize*gridSize; i++) {
-  $("#container").append("<div class='grid-square'></div>")
+function setBorder() {
+	$("#borderbutton").click(function(){
+		// If isBorder is true(on), we turn it off.
+		if(isBorder) {
+			// Run through each grid square and change it's border from black to the color of it's current background. This is how we toggle off the grid.
+			$(".grid-square").each(function(){
+				var resetColor = $(this).css("background-color");
+				$(this).css("border", "1px solid "+resetColor);
+				isBorder = false;
+				$("button#borderbutton").html("Grid: Off");
+			});
+		// Otherwise if border is false(off), we turn it on and put a border on all grid-squares.
+		} else {
+			$(".grid-square").css("border", "1px solid #885a07");
+			isBorder = true;
+			$("button#borderbutton").html("Grid: On");
+		}
+	});
 }
 
-// Set Proper Size
-$(".grid-square").css("height", squareSize);
-$(".grid-square").css("width", squareSize);
+
+function gridStart() {
+	// Create rows
+	for(i=0; i<gridSize*gridSize; i++) {
+  	$("#container").append("<div class='grid-square'></div>")
+	}
+
+	// Set Proper Size
+	$(".grid-square").css("height", squareSize-2);
+	$(".grid-square").css("width", squareSize-2);
+
+	// Set border/grid properly.
+	if(!isBorder) {
+		$(".grid-square").css("border", "1px solid white");
+	}
 }
