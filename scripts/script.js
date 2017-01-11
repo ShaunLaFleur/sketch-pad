@@ -1,4 +1,4 @@
-var gridSize = 20;
+var gridSize = 64;
 var squareSize = 800/gridSize;
 var ourColor = "blue";
 var colorSetting = "";
@@ -22,13 +22,11 @@ function gridStart() {
 	$(".grid-square").css("width", squareSize-2); // Same as above.
 
 	// Set border/grid properly.
-	if(!isBorder) {
-		$(".grid-square").css("border", "1px solid white");
-	} else {
-		$(".grid-square").css("border", "1px solid #885a07");
+	if(isBorder) {
+		$(".grid-square").css("border", "1px solid orange");
 	}
 	
-// Attach hover effect
+// Attach mouseenter effect
 	$(".grid-square").mouseenter(function(){
 		// Check if the ourColor is set to random, if it is we will change ourColor to a random color.
 		if(colorSetting === "random") {
@@ -52,9 +50,9 @@ function gridStart() {
 			$(this).css("opacity","1");
 		}
 		$(this).css("background-color", ourColor);
-		if(!isBorder) {
-			$(this).css("border", "1px solid "+ourColor);
-		}
+		//if(!isBorder) {
+			//$(this).css("border", "1px solid "+ourColor);
+		//}
 	});
 	 
 }
@@ -92,16 +90,14 @@ $("#resize").click(function(){
 $("#borderbutton").click(function(){
 	// If isBorder is true(on), we turn it off.
 	if(isBorder) {
-		// Run through each grid square and change it's border from black to the color of it's current background. This is how we toggle off the grid.
-		$(".grid-square").each(function(){
-			var resetColor = $(this).css("background-color");
-			$(this).css("border", "1px solid "+resetColor);
+			//Toggle the grid off by changing it's border to transparent.
+			$(".grid-square").css("border", "1px solid transparent");
 			isBorder = false;
 			$("button#borderbutton").html("Grid: Off");
-		});
+		//});
 	// Otherwise if border is false(off), we turn it on and put a border on all grid-squares.
 	} else {
-		$(".grid-square").css("border", "1px solid #885a07");
+		$(".grid-square").css("border", "1px solid orange");
 		isBorder = true;
 		$("button#borderbutton").html("Grid: On");
 	}
@@ -116,24 +112,24 @@ $("#regencolors").click(function(){
 // Color Swab Click
 function colorSwab() {
 	$(".fade-rain, .grid-color").click(function(){
-		// Reset Color Setting
-		colorSetting = "";
-		// Unhighlight any highlighted circles.
+		// Unhighlight.
 		$(".fade-rain").css("border-color", "white");
-		// Highlight this circle.
+		// Highlight this option.
 		$(this).css("border-color", "black");
 		// If this color is "fade", set ourColor to fade.
 		if($(this).data("color") === "fade") {
 			colorSetting = "fade";
 			$("#selected").css("background-color", "transparent");
-		// Else if color is "random", set ourColor to random and.
+		// Else if color is "random", set ourColor to random.
 		} else if($(this).data("color") === "random") {
 			colorSetting = "random";
 			$("#selected").css("background-color", "transparent");
-		// Otherwise set ourColor to the current circle's respective color.
+		// Otherwise set ourColor to the currently selected color.
 		} else {
 			ourColor = $(this).data("color");
 			$("#selected").css("background-color", ourColor);
+			// Reset Color Setting
+			colorSetting = "";
 		}		
 	});
 }
