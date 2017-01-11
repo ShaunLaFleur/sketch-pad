@@ -46,13 +46,10 @@ function gridStart() {
 				$(this).css("opacity", "+=0.1");
 			}
 		} else {
-			// By default we need opacity to be 1(no transparency)
+			// By default we need opacity to be 1(no transparency).
 			$(this).css("opacity","1");
 		}
 		$(this).css("background-color", ourColor);
-		//if(!isBorder) {
-			//$(this).css("border", "1px solid "+ourColor);
-		//}
 	});
 	 
 }
@@ -65,11 +62,40 @@ function swabStart() {
 		$(".grid-color").last().css("background-color", randColor);
 		$(".grid-color").last().data("color", randColor);
 	}
-	// Call the color swab to get it attached.
-	colorSwab();
 
-	// Call the swabhover event to get it attached.
-	swabHover();
+	// Color Swab Click
+	$(".fade-rain, .grid-color").click(function(){
+		// Unhighlight.
+		$(".fade-rain").css("border-color", "white");
+		// Highlight this option.
+		$(this).css("border-color", "black");
+		// If this color is "fade", set ourColor to fade.
+		if($(this).data("color") === "fade") {
+			colorSetting = "fade";
+			$("#selected").css("background-color", "transparent");
+		// Else if color is "random", set ourColor to random.
+		} else if($(this).data("color") === "random") {
+			colorSetting = "random";
+			$("#selected").css("background-color", "transparent");
+		// Otherwise set ourColor to the currently selected color.
+		} else {
+			ourColor = $(this).data("color");
+			$("#selected").css("background-color", ourColor);
+			// Reset Color Setting
+			colorSetting = "";
+		}		
+	});
+
+
+	// Color Swab Hover
+	$(".grid-color").mouseenter(function(){
+		var preview = $(this).css("background-color");
+		$("#highlighted").css("background-color", preview);
+	});
+
+	$(".grid-color").mouseleave(function(){
+		$("#highlighted").css("background-color", "transparent");
+	});
 }
 
 // Reset Button
@@ -108,40 +134,3 @@ $("#regencolors").click(function(){
 	$(".grid-color").remove(); // REmove all grid colors.
 	swabStart(); // Repopulate the grid with colors.
 });
-
-// Color Swab Click
-function colorSwab() {
-	$(".fade-rain, .grid-color").click(function(){
-		// Unhighlight.
-		$(".fade-rain").css("border-color", "white");
-		// Highlight this option.
-		$(this).css("border-color", "black");
-		// If this color is "fade", set ourColor to fade.
-		if($(this).data("color") === "fade") {
-			colorSetting = "fade";
-			$("#selected").css("background-color", "transparent");
-		// Else if color is "random", set ourColor to random.
-		} else if($(this).data("color") === "random") {
-			colorSetting = "random";
-			$("#selected").css("background-color", "transparent");
-		// Otherwise set ourColor to the currently selected color.
-		} else {
-			ourColor = $(this).data("color");
-			$("#selected").css("background-color", ourColor);
-			// Reset Color Setting
-			colorSetting = "";
-		}		
-	});
-}
-
-// Color Swab Hover
-function swabHover() {
-	$(".grid-color").mouseenter(function(){
-		var preview = $(this).css("background-color");
-		$("#highlighted").css("background-color", preview);
-	});
-
-	$(".grid-color").mouseleave(function(){
-		$("#highlighted").css("background-color", "");
-	});
-}
