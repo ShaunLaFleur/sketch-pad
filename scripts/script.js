@@ -23,7 +23,7 @@ function gridStart() {
 
 	// Set border/grid properly.
 	if(isBorder) {
-		$(".grid-square").css("border", "1px solid orange");
+		$(".grid-square").css("border", "1px solid #4286f4");
 	}
 	
 // Attach mouseenter effect
@@ -120,10 +120,9 @@ $("#borderbutton").click(function(){
 			$(".grid-square").css("border", "1px solid transparent");
 			isBorder = false;
 			$("button#borderbutton").html("Grid: Off");
-		//});
 	// Otherwise if border is false(off), we turn it on and put a border on all grid-squares.
 	} else {
-		$(".grid-square").css("border", "1px solid orange");
+		$(".grid-square").css("border", "1px solid #4286f4");
 		isBorder = true;
 		$("button#borderbutton").html("Grid: On");
 	}
